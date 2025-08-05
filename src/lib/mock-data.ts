@@ -11,9 +11,9 @@ export const MOCK_CURRENT_USER: User = MOCK_USERS[0];
 export const MOCK_IMAGES: ImagePost[] = [
   {
     id: 'img1',
-    imageUrl: 'https://placehold.co/600x600/94D6C5/FFFFFF',
-    name: 'Teal Dream',
-    tags: ['abstract', 'teal', 'minimal'],
+    imageUrl: 'https://www.bigfootdigital.co.uk/wp-content/uploads/2020/07/image-optimisation-scaled.jpg',
+    name: 'Image Optimization',
+    tags: ['seo', 'images', 'optimisation'],
     userId: 'user1',
     createdAt: new Date(Date.now() - 1000 * 60 * 5), // 5 minutes ago
     likes: 12,
