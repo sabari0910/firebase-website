@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
   Bell,
+  Camera,
   Home,
   LineChart,
   Package,
@@ -49,6 +50,7 @@ export default function DashboardLayout({
     { href: "/dashboard/products", label: "Products", icon: Package2 },
     { href: "/dashboard/customers", label: "Customers", icon: Users },
     { href: "/dashboard/analytics", label: "Analytics", icon: LineChart },
+    { href: "/dashboard/camera", label: "Camera", icon: Camera },
   ];
 
   return (
