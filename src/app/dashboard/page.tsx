@@ -10,17 +10,17 @@ import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
 export default function DashboardPage() {
-  const [images, setImages] = useState<ImagePost[]>([]);
+  const [images, setImages] = useState<ImagePost[]>(MOCK_IMAGES);
   const [users, setUsers] = useState<Record<string, User>>({});
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     // Simulate fetching data
-    setImages(MOCK_IMAGES);
     const usersMap = MOCK_USERS.reduce((acc, user) => {
       acc[user.id] = user;
       return acc;
     }, {} as Record<string, User>);
+    usersMap[MOCK_CURRENT_USER.id] = MOCK_CURRENT_USER;
     setUsers(usersMap);
   }, []);
 
