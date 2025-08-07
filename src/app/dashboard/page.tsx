@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import type { ImagePost, User } from '@/lib/types';
 import { MOCK_IMAGES, MOCK_USERS, MOCK_CURRENT_USER } from '@/lib/mock-data';
 import Header from '@/components/header';
@@ -24,19 +24,19 @@ export default function DashboardPage() {
     setUsers(usersMap);
   }, []);
 
-  const handleAddImage = (newImage: Omit<ImagePost, 'id' | 'createdAt' | 'likes'>) => {
+  const handleAddImage = useCallback((newImage: Omit<ImagePost, 'id' | 'createdAt' | 'likes'>) => {
     const fullNewImage: ImagePost = {
       ...newImage,
-      id: `img${images.length + 1}`,
+      id: `img${Date.now()}`,
       createdAt: new Date(),
       likes: 0,
     };
     setImages(prevImages => [fullNewImage, ...prevImages]);
-  };
+  }, []);
 
-  const handleDeleteImage = (imageId: string) => {
+  const handleDeleteImage = useCallback((imageId: string) => {
     setImages(prevImages => prevImages.filter(image => image.id !== imageId));
-  };
+  }, []);
 
   const filteredImages = useMemo(() => {
     if (!searchTerm) {
